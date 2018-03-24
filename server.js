@@ -18,11 +18,17 @@ app.use(express.static("public"));
 
 // // Set mongoose to leverage built in JavaScript ES6 Promises
 // // Connect to the Mongo DB
+// mongoose.Promise = Promise;
+// mongoose.connect("mongodb://localhost/marketdb", {
+//   useMongoClient: true
+// });
+
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/marketdb";
+
 mongoose.Promise = Promise;
-mongoose.connect("mongodb://localhost/marketdb", {
+mongoose.connect(MONGODB_URI, {
   useMongoClient: true
 });
-
 
 
     // Now, we grab every h2 within an article tag, and do the following:

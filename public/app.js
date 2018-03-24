@@ -1,11 +1,12 @@
 // Grab the articles as a json
+$( document ).ready(
 $.getJSON("/markets", function(data) {
   // For each one
   for (var i = 0; i < data.length; i++) {
     // Display the apropos information on the page
     $(".markets").append("<a href='https://marketwatch.com/markets" + data[i].link + "'><h3 data-id='" + data[i]._id + "'>" + data[i].title + "</h3></a> <p>" + data[i].summary + "</p><br>");
   }
-});
+}));
 
 $(document).on("click", ".scrape", function() {
   $.getJSON("/markets", function(data) {

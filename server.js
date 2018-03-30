@@ -23,7 +23,7 @@ app.use(express.static("public"));
 //   useMongoClient: true
 // });
 
-var MONGODB_URI = "mongodb://heroku_q7rbhr8m:k9unbp28rnrgs94bj8k5cgnso9@ds127899.mlab.com:27899/heroku_q7rbhr8m" || "mongodb://localhost/marketdb";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/marketdb";
 
 mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI, {
